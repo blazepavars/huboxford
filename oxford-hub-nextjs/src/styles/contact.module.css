@@ -1,0 +1,376 @@
+.contact {
+  background-color: #FFD06D;
+  padding: 75px 50px 75px 50px;
+  color: #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10%;
+  overflow: visible;
+  z-index: 0;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10%;
+}
+
+.content {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-family: 'korolev-compressed', sans-serif;
+  font-size: 124px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: normal;
+  letter-spacing: 0em;
+  margin: 0;
+  color: #000000;
+  z-index: 1;
+  max-width: max-content;
+}
+
+.subtitle {
+  font-family: 'korolev-compressed', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.14em;
+  letter-spacing: 0em;
+  margin: 0;
+  color: #000000;
+  z-index: 0;
+  max-width: max-content;
+}
+
+.contactInfo {
+  width: 50%;
+  min-width: 240px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0px;
+  padding: 0;
+  z-index: 2;
+  overflow: hidden;
+  align-self: flex-start;
+}
+
+.person {
+  width: 59.14%;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 77px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.contactDetailsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+.contactDetails {
+  padding: 0;
+  width: max-content;
+  max-width: max-content;
+}
+
+.name {
+  font-family: 'korolev-compressed', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0em;
+  margin: 0;
+  color: #000000;
+  z-index: 0;
+  max-width: max-content;
+  line-height: 1;
+}
+
+.companyName {
+  font-family: 'korolev-compressed', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0em;
+  margin: 0;
+  color: #000000;
+  z-index: 0;
+  max-width: max-content;
+  line-height: 1;
+}
+
+.details {
+  font-family: 'korolev-compressed', sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: 0em;
+  color: #000000;
+  z-index: 0;
+  max-width: max-content;
+  margin-top: 12px;
+}
+
+.details a {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.details a:hover {
+  opacity: 0.8;
+}
+
+.email,
+.phone {
+  color: #000;
+  text-decoration: underline;
+  font-family: 'korolev-compressed', sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1;
+  display: block;
+}
+
+.phone {
+  margin-top: 6px;
+}
+
+.email:hover,
+.phone:hover {
+  opacity: 0.8;
+}
+
+.contactButton {
+  background-color: #000000;
+  color: #FFD06D;
+  border: none;
+  padding: 0;
+  font-family: 'korolev-compressed', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s, transform 0.4s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 181px;
+  height: 62px;
+  text-align: center;
+  box-sizing: border-box;
+  align-self: flex-start;
+}
+
+.contactButton:hover {
+  opacity: 0.9;
+}
+
+.logo {
+  width: 20%;
+  min-width: 100px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 10;
+  max-width: 100%;
+  flex-shrink: 0;
+  margin-top: 16px;
+}
+
+.logoBox {
+  background: #000;
+  color: #FFD06D;
+  padding: 1rem;
+  text-align: center;
+  border: 2px solid #000;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.logoText {
+  display: block;
+  font-size: 1.25rem;
+}
+
+.logoSubtext {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.logoImage {
+  width: 85px;
+  height: 154px;
+  max-width: 85px;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  object-fit: contain;
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .contact {
+    padding: 19px 40px 29px 40px;
+    gap: 15px;
+  }
+  
+  .contactDetailsContainer {
+    margin-top: 8px;
+  }
+  
+  .logo {
+    margin-top: 8px;
+    margin-left: -24px;
+  }
+  
+  .contactButton {
+    width: 145px;
+    height: 50px;
+    font-size: 26px;
+  }
+  
+  .title {
+    font-size: 80px;
+    max-width: 478px;
+  }
+  
+  .subtitle {
+    font-size: 34px;
+    line-height: 1.2em;
+    max-width: 184px;
+  }
+  
+  .contactInfo {
+    gap: 0px;
+    width: 465px;
+  }
+  
+  .person {
+    gap: 15px;
+    width: 275px;
+  }
+  
+  .name,
+  .companyName {
+    font-size: 28px;
+  }
+  
+  .details,
+  .email,
+  .phone {
+    font-size: 24px;
+  }
+  
+  .logo {
+    width: 33%;
+  }
+  
+  .logoImage {
+    width: 68px;
+    height: 123px;
+    max-width: 68px;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .contact {
+    padding: 16px 20px 22px 20px;
+    flex-direction: column;
+    gap: 33px;
+  }
+  
+  .contactDetailsContainer {
+    margin-top: 0;
+  }
+  
+  .logo {
+    margin-top: 0;
+  }
+  
+  .contactButton {
+    width: 108px;
+    height: 37px;
+    font-size: 20px;
+  }
+  
+  .container {
+    flex-direction: column;
+    gap: 33px;
+  }
+  
+  .content {
+    width: 100%;
+  }
+  
+  .title {
+    font-size: 90px;
+  }
+  
+  .subtitle {
+    font-size: 34px;
+    line-height: 1.2em;
+  }
+  
+  .contactInfo {
+    width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+    gap: 33px;
+  }
+  
+  .person {
+    width: 100%;
+    max-width: 275px;
+    gap: 31px;
+  }
+  
+  .name,
+  .companyName {
+    font-size: 28px;
+  }
+  
+  .details,
+  .email,
+  .phone {
+    font-size: 22px;
+  }
+  
+  .logo {
+    width: auto;
+    max-width: none;
+    justify-content: flex-start;
+    margin-top: 0;
+    margin-left: 0;
+    height: auto;
+    min-height: 120px;
+    flex-shrink: 0;
+  }
+  
+  .logoImage {
+    width: 60px;
+    height: 108px;
+    max-width: 60px;
+  }
+}

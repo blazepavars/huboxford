@@ -1,0 +1,369 @@
+.accordionSection {
+  padding: 0 50px 50px 50px;
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.sectionTitle {
+  font-family: 'korolev-compressed', sans-serif;
+  font-size: 124px;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0em;
+  text-decoration: none;
+  margin: 0;
+  color: #000000;
+  text-align: left;
+  width: 100%;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  gap: 20px;
+}
+
+.slide {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 25px;
+  overflow: hidden;
+  transition: flex 0.4s ease, transform 0.3s ease, opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding: 0.375rem;
+}
+
+.slide.fade-in-section:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.slide.defaultExpanded {
+  flex: 3;
+}
+
+.slide.expanded {
+  flex: 3;
+}
+
+.slide.expanded:not(.fade-in-section),
+.slide.expanded.fade-in-section.is-visible {
+  transform: translateY(-2px);
+}
+
+.slide:not(.expanded):not(.defaultExpanded) {
+  flex: 1;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.overlay {
+  display: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  z-index: 1;
+  color: #000000;
+  min-width: 240px;
+}
+
+.upperText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.upperText .metaLine {
+  margin-top: -10px;
+}
+
+.lowerText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.lowerText .metaLine {
+  margin-top: -10px;
+}
+
+.titleLine {
+  font-family: 'korolev-compressed', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0em;
+  text-decoration: none;
+  margin: 0;
+  color: #000000;
+  display: block;
+}
+
+.metaLine {
+  font-family: 'korolev-compressed', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.5em;
+  letter-spacing: 0em;
+  text-decoration: none;
+  margin: 0;
+  color: #000000;
+  display: block;
+}
+
+/* Mobile Navigation */
+.mobileNavigation {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Force each slide to be the full viewport width on mobile */
+  .swiper :global(.swiper-slide) {
+    width: 100% !important;
+  }
+  .mobileNavigation {
+    display: flex !important;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    margin: 12px 0 8px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+  }
+}
+
+.navButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+}
+
+.navButton.disabled {
+  cursor: not-allowed;
+}
+
+.arrowLeft,
+.arrowRight {
+  width: 22px;
+  height: 20px;
+  opacity: 0.85;
+  flex: none;
+}
+
+.arrowLeft {
+  transform: rotate(180deg);
+}
+
+.arrowRight {
+  /* No transform needed, already pointing right */
+}
+
+.navButton.disabled .arrowLeft,
+.navButton.disabled .arrowRight {
+  opacity: 0.1;
+}
+
+/* removed btnLabel */
+
+.desktopAccordion {
+  display: flex;
+  width: 100%;
+}
+
+.mobileSlider {
+  display: none;
+  position: relative;
+}
+
+.swiper {
+  width: 100%;
+  position: relative;
+  z-index: 0;
+}
+
+/* Hide Swiper's built-in navigation within our local swiper wrapper */
+.swiper :global(.swiper-button-prev),
+.swiper :global(.swiper-button-next) {
+  display: none !important;
+}
+
+.mobileText {
+  position: relative;
+  z-index: 5;
+}
+
+.textContent {
+  display: none;
+}
+
+.textContent.active {
+  display: block;
+  color: #000;
+}
+
+/* Ensure CSS Modules exports an 'active' class for toggling */
+.active {
+  display: block;
+}
+
+/* Provide class hooks for Swiper navigation selectors */
+.prevButton {}
+.nextButton {}
+.disabled {}
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .accordionSection {
+    padding: 0 0 32px 0;
+    gap: 15px;
+  }
+  
+  .accordion {
+    gap: 0px;
+  }
+  
+  .sectionTitle {
+    font-size: 80px;
+    margin-left: 20px;
+  }
+  
+  .slide {
+    gap: 15px;
+  }
+  
+  .titleLine {
+    font-size: 28px;
+  }
+  
+  .metaLine {
+    font-size: 28px;
+    line-height: 1.42em;
+  }
+  
+  .content {
+    padding-left: 20px;
+    width: 313px;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .accordionSection {
+    padding: 0 0 19px 0;
+    gap: 12px;
+  }
+  
+  .sectionTitle {
+    font-size: 80px;
+    padding-left: 20px;
+    margin-left: 0;
+  }
+  
+  .desktopAccordion {
+    display: none !important;
+  }
+  
+  .mobileSlider {
+    display: block !important;
+    /* Constrain to viewport width and align to viewport edges */
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+  
+  .swiper {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .imageWrapper {
+    height: 400px;
+    min-height: 400px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    position: relative;
+  }
+  
+  .navButton {
+    width: 32px;
+    height: 28px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .mobileNavigation,
+  .mobileText {
+    /* Keep content aligned with viewport (not stretched by oversized siblings) */
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 0 20px;
+  }
+  .mobileText { margin-top: 16px; }
+  
+  .textContent {
+    display: none;
+  }
+  
+  .textContent.active {
+    display: block;
+  }
+  
+  .titleLine {
+    font-size: 28px;
+  }
+  
+  .metaLine {
+    font-size: 28px;
+    line-height: 1.32em;
+  }
+  
+  .upperText,
+  .lowerText {
+    margin-bottom: 8px;
+  }
+  
+  .upperText .metaLine,
+  .lowerText .metaLine {
+    margin-top: -5px;
+  }
+}
