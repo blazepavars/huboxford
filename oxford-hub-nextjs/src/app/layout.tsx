@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -16,7 +17,15 @@ export default function RootLayout({
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/gcy4fhs.css" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script
+          src="https://consent.trustarc.com/notice?domain=omers-opgi-corporate.com&c=teconsent&js=nj&noticeType=bb&pcookie&gtm=1&text=true"
+          strategy="afterInteractive"
+        />
+        <div id="consent_blackbar" />
+        <div id="teconsent" />
+      </body>
     </html>
   )
 }
