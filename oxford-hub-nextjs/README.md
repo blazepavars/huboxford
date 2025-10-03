@@ -62,7 +62,7 @@ The hero section is missing the background video that should be added behind the
 ## TODO
 
 ### **Immediate Tasks:**
-- [ ] **Delete unused content models** from "The Hub" group
+- [ ] **Delete unused content models** from "The Hub" group (I do not have account permissions to do this.)
 - [ ] **Add hero background video** to Hero section
 - [ ] **Convert all images to WebP** and re-upload
 - [ ] **Rename image files** with proper descriptive names

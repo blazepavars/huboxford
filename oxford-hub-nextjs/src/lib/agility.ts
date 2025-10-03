@@ -42,6 +42,10 @@ export interface HubHeroData {
   };
   mainHeading?: string;
   subHeading?: string;
+  heroVideo?: {
+    url: string;
+    label?: string;
+  };
 }
 
 export interface CTAData {
@@ -213,7 +217,8 @@ export async function getHubHeroData(preview = true): Promise<HubHeroData> {
         return {
           herologo: hubHeroComponent.item.fields.herologo,
           mainHeading: hubHeroComponent.item.fields.mainHeading,
-          subHeading: hubHeroComponent.item.fields.subHeading
+          subHeading: hubHeroComponent.item.fields.subHeading,
+          heroVideo: hubHeroComponent.item.fields.heroVideo
         };
       }
     }

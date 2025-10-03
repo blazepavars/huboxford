@@ -44,6 +44,7 @@ export default async function Home() {
         herologo={heroData?.herologo}
         mainHeading={heroData?.mainHeading}
         subHeading={heroData?.subHeading}
+        heroVideo={heroData?.heroVideo}
       />
       <IntroSection 
         torontoSkylineImage={platformData?.torontoSkylineImage}

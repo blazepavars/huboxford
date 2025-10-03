@@ -8,12 +8,17 @@ interface HeroProps {
   };
   mainHeading?: string;
   subHeading?: string;
+  heroVideo?: {
+    url: string;
+    label?: string;
+  };
 }
 
 export default function Hero({ 
   herologo,
   mainHeading,
-  subHeading
+  subHeading,
+  heroVideo
 }: HeroProps) {
   const subHeadingWords = subHeading ? subHeading.split(' ') : [];
   const firstLine = subHeadingWords.slice(0, 3).join(' ').toUpperCase();
@@ -21,6 +26,17 @@ export default function Hero({
   
   return (
     <section className={styles.hero}>
+      {heroVideo && (
+        <video
+          className={styles.heroVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src={heroVideo.url} type="video/mp4" />
+        </video>
+      )}
       {herologo && (
         <div className={styles.logo}>
           <Image 
