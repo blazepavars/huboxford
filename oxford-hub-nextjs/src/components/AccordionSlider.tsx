@@ -127,9 +127,10 @@ export default function AccordionSlider({ slides, title }: AccordionSliderProps)
                   src={slide.image.url}
                   alt={slide.image.alt || slide.titleTop}
                   fill
-                  sizes="(max-width: 768px) 100vw, 25vw"
+                  sizes="(max-width: 768px) 100vw, 1600px"
                   className={styles.image}
                   priority={index === 0}
+                  quality={95}
                 />
                 <div className={styles.overlay} />
               </div>
@@ -179,6 +180,7 @@ export default function AccordionSlider({ slides, title }: AccordionSliderProps)
                   sizes="100vw"
                   className={styles.image}
                   priority={index === 0}
+                  quality={95}
                 />
                 <div className={styles.overlay} />
               </div>
