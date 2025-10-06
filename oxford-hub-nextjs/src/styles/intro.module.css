@@ -115,4 +115,9 @@
     font-size: 17px;
     line-height: 1.2em;
   }
+  
+  .skylineImage {
+    object-position: 85% center;
+    transform: scale(1.1);
+  }
 }
