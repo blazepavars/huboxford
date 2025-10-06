@@ -22,6 +22,57 @@
   color: #000000;
   text-align: left;
   width: 100%;
+  overflow: hidden;
+}
+
+.titleWord {
+  font-weight: 700;
+  display: inline-block;
+}
+
+.titleWord.up {
+  animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.titleWord.left {
+  animation: slideLeft 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.titleWord.right {
+  animation: slideRight 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .accordion {

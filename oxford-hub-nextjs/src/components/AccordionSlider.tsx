@@ -16,6 +16,7 @@ export interface Slide {
   titleBottom: string;
   metaTop: string;
   metaBottom: string;
+  titleWord?: string;
 }
 
 interface AccordionSliderProps {
@@ -29,11 +30,51 @@ export default function AccordionSlider({ slides, title }: AccordionSliderProps)
   const [currentSlide, setCurrentSlide] = useState(0);
   const [visibleCards, setVisibleCards] = useState<boolean[]>(new Array(slides.length).fill(false));
   const [mobileVisible, setMobileVisible] = useState(false);
+  const [displayWord, setDisplayWord] = useState('OPPORTUNITY');
+  const [wordKey, setWordKey] = useState(0);
+  const [swipeDirection, setSwipeDirection] = useState<'left' | 'right' | 'up'>('up');
+  const previousSlideRef = useRef(0);
   const swiperRef = useRef<any>(null);
   const mobileSliderRef = useRef<HTMLDivElement | null>(null);
   const mobileNavRef = useRef<HTMLDivElement | null>(null);
   const mobileTextRef = useRef<HTMLDivElement | null>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>(new Array(slides.length).fill(null));
+  
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  const getActiveWord = () => {
+    if (isMobile) {
+      return slides[currentSlide]?.titleWord || 'OPPORTUNITY';
+    }
+    const activeIndex = hoveredIndex !== null ? hoveredIndex : 0;
+    return slides[activeIndex]?.titleWord || 'OPPORTUNITY';
+  };
+  
+  useEffect(() => {
+    const newWord = getActiveWord();
+    if (newWord !== displayWord) {
+      if (isMobile) {
+        if (currentSlide > previousSlideRef.current) {
+          setSwipeDirection('left');
+        } else if (currentSlide < previousSlideRef.current) {
+          setSwipeDirection('right');
+        }
+        previousSlideRef.current = currentSlide;
+      } else {
+        setSwipeDirection('up');
+      }
+      
+      setDisplayWord(newWord);
+      setWordKey(prev => prev + 1);
+    }
+  }, [hoveredIndex, currentSlide, isMobile]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -103,10 +144,9 @@ export default function AccordionSlider({ slides, title }: AccordionSliderProps)
   return (
     <section className={styles.accordionSection}>
       {title && (
-        <h2 
-          className={styles.sectionTitle}
-          dangerouslySetInnerHTML={{ __html: title }}
-        />
+        <h2 className={styles.sectionTitle}>
+          {title.replace(/<[^>]*>/g, '').trim()} <span key={wordKey} className={`${styles.titleWord} ${styles[swipeDirection]}`}>{displayWord}</span>
+        </h2>
       )}
       <div className={styles.desktopAccordion}>
         <div className={styles.accordion}>
@@ -137,11 +177,11 @@ export default function AccordionSlider({ slides, title }: AccordionSliderProps)
               
               <div className={styles.content}>
                 <div className={styles.upperText}>
-                  <div className={styles.titleLine}>{slide.titleTop}</div>
+                  <div className={index === 2 ? styles.metaLine : styles.titleLine}>{slide.titleTop}</div>
                   <div className={styles.metaLine}>{slide.titleBottom}</div>
                 </div>
                 <div className={styles.lowerText}>
-                  <div className={styles.titleLine}>{slide.metaTop}</div>
+                  <div className={index === 2 ? styles.metaLine : styles.titleLine}>{slide.metaTop}</div>
                   <div className={styles.metaLine}>{slide.metaBottom}</div>
                 </div>
               </div>
@@ -228,11 +268,11 @@ export default function AccordionSlider({ slides, title }: AccordionSliderProps)
               className={`${styles.textContent} ${index === currentSlide ? styles.active : ''}`}
             >
               <div className={styles.upperText}>
-                <div className={styles.titleLine}>{slide.titleTop}</div>
+                <div className={index === 2 ? styles.metaLine : styles.titleLine}>{slide.titleTop}</div>
                 <div className={styles.metaLine}>{slide.titleBottom}</div>
               </div>
               <div className={styles.lowerText}>
-                <div className={styles.titleLine}>{slide.metaTop}</div>
+                <div className={index === 2 ? styles.metaLine : styles.titleLine}>{slide.metaTop}</div>
                 <div className={styles.metaLine}>{slide.metaBottom}</div>
               </div>
             </div>

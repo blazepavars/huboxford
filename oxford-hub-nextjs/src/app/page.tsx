@@ -16,11 +16,11 @@ export default async function Home() {
 
   try {
     [accordionData, platformData, heroData, ctaData, footerData] = await Promise.all([
-      getHubAccordionData(true),
-      getHubPlatformSectionData(true),
-      getHubHeroData(true),
-      getCTAData(true),
-      getFooterData(true)
+      getHubAccordionData(false),
+      getHubPlatformSectionData(false),
+      getHubHeroData(false),
+      getCTAData(false),
+      getFooterData(false)
     ]);
   } catch (err) {
     error = err instanceof Error ? err.message : 'Failed to load content';
@@ -35,7 +35,8 @@ export default async function Home() {
     titleTop: slide.fields.titleTopLine,
     titleBottom: slide.fields.titleBottomLine,
     metaTop: slide.fields.metaTopLine,
-    metaBottom: slide.fields.metaBottomLine
+    metaBottom: slide.fields.metaBottomLine,
+    titleWord: slide.fields.titleWord
   })) || [];
 
   return (

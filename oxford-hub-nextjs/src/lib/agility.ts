@@ -17,6 +17,7 @@ export interface HubSlide {
     titleBottomLine: string;
     metaTopLine: string;
     metaBottomLine: string;
+    titleWord?: string;
   };
 }
 
@@ -83,6 +84,7 @@ export async function getHubSlides(preview = true): Promise<HubSlide[]> {
   if (!apiKey) {
     throw new Error(`Missing ${preview ? 'preview' : 'fetch'} API key`);
   }
+
 
   const response = await fetch(
     `${AGILITY_API_URL}/${apiType}/en-us/list/hubslides`,
