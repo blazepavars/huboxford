@@ -60,31 +60,8 @@
   display: inline;
 }
 
-/* Tablet styles */
+/* Tablet and Mobile styles */
 @media (max-width: 1024px) {
-  .hero {
-    padding: 29px 40px 87px 40px;
-    gap: 15px;
-  }
-  
-  .logo {
-    width: 60px;
-    margin-left: 0;
-  }
-  
-  .heroContent {
-    width: 647px;
-    margin-left: 0;
-  }
-  
-  .title {
-    font-size: 80px;
-    line-height: 0.9em;
-  }
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
   .hero {
     padding: 19px 20px 64px 20px;
     gap: 29px;
@@ -99,10 +76,11 @@
   .heroContent {
     width: 100%;
     margin-left: 0;
+    margin-top: 20vh;
   }
   
   .title {
     font-size: 80px;
-    line-height: 0.9em;
+    line-height: 1em;
   }
 }

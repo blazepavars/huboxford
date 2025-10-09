@@ -349,6 +349,7 @@
     font-size: 80px;
     padding-left: 20px;
     margin-left: 0;
+    line-height: 1em;
   }
   
   .desktopAccordion {
@@ -389,7 +390,8 @@
     margin-left: calc(-50vw + 50%);
     padding: 0 20px;
   }
-  .mobileText { margin-top: 16px; }
+  .mobileText { margin-top: 16px; 
+}
   
   .textContent {
     display: none;
